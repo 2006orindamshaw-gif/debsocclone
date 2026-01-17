@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DebSoc NIT Durgapur</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
+body{background:#f5f5fb;color:#111;}
+
+nav{
+    top:0;width:100%;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 60px; background:linear-gradient(120deg,#f7f7ff,#ececff);z-index:99;
+}
+nav ul{display:flex;gap:30px;list-style:none;
+ }
+nav a{text-decoration:none;color:#111;font-weight:600;}
+
+
+.hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    padding:140px 10%;
+    background:linear-gradient(120deg,#f7f7ff,#ececff);
+    overflow:hidden;
+}
+
+/* Background text */
+.hero-bg-text{
+    position:absolute;
+    top:50%;
+    right:6%;
+    transform:translateY(-50%);
+    font-size:clamp(140px, 22vw, 240px);  /* 🔥 responsive sizing */
+    font-weight:800;
+    color:#be5454;
+    opacity:0.06;
+    letter-spacing:10px;
+    z-index:0;
+    pointer-events:none;
+    user-select:none;
+    white-space:nowrap;
+}
+
+/* Heading line */
+.hero-line{
+    width:120px;
+    height:3px;
+    background:#6c63ff;
+    margin:14px 0 18px;
+}
+
+.hero-title-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+/* background text — between title and underline */
+.hero-bg-text{
+    position:absolute;
+    top:-40px;                 /* sits above underline */
+    left:50%;
+    transform:translateX(-50%);
+    font-size:clamp(120px, 20vw, 200px);
+    font-weight:800;
+    letter-spacing:10px;
+    white-space:nowrap;
+
+    color:hotpink;
+
+    z-index:1;                 /* 🔑 above underline */
+    pointer-events:none;
+    user-select:none;
+}
+
+/* title text */
+.hero-title{
+    position:relative;
+    z-index:2;                 /* 🔑 above background text */
+    font-size:52px;
+    font-weight:800;
+    white-space:nowrap;
+    margin:0;
+}
+
+/* underline */
+.hero-underline{
+    width:100%;
+    height:1.5px;
+    background:#000;
+    margin-top:8px;
+    position:relative;
+    z-index:0;                 /* 🔑 below background text */
+}
+
+
+
+.hero-container{
+    display:flex;
+    align-items:center;
+    
+    position:relative;
+    z-index:2;
+
+}
+
+.hero-logo img{
+    width:260px;
+}
+
+.hero-spacer{
+    width:180px;
+}
+
+.hero-content{
+    max-width:none;        
+    width:auto;
+}
+
+.hero-content h1{
+    font-size:52px;
+    line-height:1.1;
+}
+
+.hero-content span{
+    color:#6c63ff;
+}
+
+.hero-content h2{
+    margin:10px 0 20px;
+    font-weight:500;
+    color:#555;
+}
+
+.hero-content p{
+    color:#444;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn{
+    background:#6c63ff;color:#fff;padding:14px 30px;border:none;
+    border-radius:8px;font-size:16px;cursor:pointer;
+}
+
+.section-dark{
+    padding:120px 10%;background:#0f0b25;color:#fff;text-align:center;
+}
+.section-dark h2{font-size:48px;margin-bottom:20px;}
+.section-dark p{max-width:800px;margin:auto;color:#ddd;line-height:1.6;}
+
+.cards{
+    margin-top:60px;display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.card{
+    background:#6c63ff;padding:30px;border-radius:16px;color:#fff;
+}
+.card h3{margin:15px 0;}
+.what-cards-row{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.what-card{
+    width:300px;
+    background:#6c63ff;
+    padding:70px 30px 40px;
+    border-radius:16px;
+    text-align:center;
+    position:relative;
+    color:#fff;
+}
+
+/* Fun event centered below */
+.fun-event-card{
+    margin:80px auto 0;
+    width:360px;
+    background:#6c63ff;
+    padding:70px 30px 40px;
+    border-radius:16px;
+    text-align:center;
+    position:relative;
+    color:#fff;
+}
+
+/* icon styling remains same */
+.what-icon{
+    width:60px;
+    height:60px;
+    background:#0f0b25;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:absolute;
+    top:-30px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+
+.what-icon img{
+    width:28px;
+    filter:invert(1);
+}
+.what-dark{
+    background:#0f0b25;
+    color:#fff;
+    padding:120px 10% 180px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.what-purple{
+    background:#6c63ff;
+    padding:120px 10% 80px;
+    margin-top:-120px; /* THIS creates overlap */
+    position:relative;
+    z-index:2;
+    border-radius:40px 40px 0 0;
+}
+.sponsors{
+    padding:100px 10%;
+}
+
+.sponsor-heading{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.sponsor-heading h2{
+    font-size:42px;
+    font-weight:700;
+}
+
+.sponsor-heading p{
+    margin-top:10px;
+    color:#555;
+}
+
+
+.sponsor-grid{
+    margin-top:60px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px 60px;
+    justify-content:center;
+}
+
+.sponsor-grid img{
+    width:160px;
+    padding:0;
+    background:transparent;
+    box-shadow:none;
+    filter:none;          /* REMOVE grayscale */
+    opacity:1;            /* FULL visibility */
+    transition:0.3s ease;
+}
+
+/* keep the clumsy randomness */
+.sponsor-grid img:nth-child(3n){width:200px;}
+.sponsor-grid img:nth-child(4n){width:140px;}
+.sponsor-grid img:nth-child(5n){width:220px;}
+.sponsor-grid img:nth-child(7n){width:120px;}
+
+.sponsor-grid img:nth-child(2n){margin-top:20px;}
+.sponsor-grid img:nth-child(5n){margin-top:-18px;}
+.sponsor-grid img:nth-child(8n){margin-top:30px;}
+
+.sponsor-grid img:hover{
+    transform:scale(1.08);
+}
+
+.events{
+    padding:120px 10%;background:#6c63ff;color:#fff;text-align:center;
+}
+
+.event-wrapper{
+    margin-top:50px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.event-track{
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+}
+.event-track::-webkit-scrollbar{display:none;}
+.event-track img{
+    width:280px;
+    border-radius:14px;
+    flex-shrink:0;
+}
+.scroll-btn{
+    background:#fff;
+    border:none;
+    padding:12px 16px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.gallery{
+    margin-top:50px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+}
+.gallery img{width:100%;border-radius:12px;}
+
+.subscribe{
+    padding:80px 10%;background:#0f0b25;color:#fff;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+}
+.subscribe input{
+    padding:12px;width:260px;border-radius:6px;border:none;
+}
+footer{
+    background:#6c63ff;color:#fff;padding:50px 10%;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:40px;
+}
+footer h3{margin-bottom:10px;}
+footer p,a{color:#ddd;text-decoration:none;font-size:14px;}
+.copyright-strip{
+    background:#0f0b25;
+    color:#bbb;
+    text-align:center;
+    padding:14px 10px;
+    font-size:13px;
+    letter-spacing:0.5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>DEBSOC</h2>
+    <ul>
+        <li><a href="#vistaar">VISTAAR</a></li>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#what">EVENTS</a></li>
+        <li><a href="#events">ABOUT US</a></li>
+        <li><a href="#sponsors">ALUMNI</a></li>
+    </ul>
+</nav>
+
+<section class="hero" >
+    <div class="hero-bg-text">DEBSOC</div>
+
+    <div class="hero-container">
+
+        <div class="hero-logo">
+            <img src="logo.png" alt="DebSoc Logo">
+        </div>
+
+        <div class="hero-spacer"></div>
+
+        <div class="hero-content">
+           <div class="hero-title-wrapper">
+
+    <h1 class="hero-title">
+        THE <span>DEBATING</span> SOCIETY
+    </h1>
+
+    <div class="hero-underline"></div>
+</div>
+
+            <h2>NIT DURGAPUR</h2>
+            <p>
+              We, the official Debating Club of NIT Durgapur, believe every voice matters
+              and are dedicated to creating an accessible space for debaters, public speakers, and the like to be able to participate in constructive discussion and build new ideologies.
+            </p>
+            <button class="btn">Know More</button>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="what-dark">
+    <h2>WHAT WE DO</h2>
+    <p>The Debating Society, NIT Durgapur, hosts some of the biggest debating events
+in the eastern circuit. Over the years, we have built a platform for talented and inquisitive
+ students to voice their opinions. We aim to promote the culture of debating on campus and 
+ help encourage budding public speakers to overcome their fear and express themselves freely.
+ We stay on par in the technical realm too by emphasizing the use of technology in our practices.
+</p>
+</section>
+<section class="what-purple">
+    <div class="what-cards-row">
+    <div class="what-card">
+    <div class="what-icon">
+        <img src="debate.png">
+    </div>
+
+    <h3>National Debates</h3>
+    <p>
+        The club annually organizes the Asian Parliamentary Debate,
+         a national-level debating event that sees massive participation. Other than this, 
+         The Oxford Union Debates is also a well-received event in the eastern circuit.
+    </p>
+</div>
+ <div class="what-card">
+    <div class="what-icon">
+        <img src="workshop.png">
+    </div>
+
+    <h3>Speaking Workshops</h3>
+    <p>
+        As a club, we realize that public speaking may not be everyone's cup of tea. It can be a frightening experience,
+         which is why we host workshops every year. If you have a voice,
+          we are here to help you amplify it.
+    </p>
+</div>
+ <div class="what-card">
+    <div class="what-icon">
+        <img src="quiz.png">
+    </div>
+
+    <h3>Exciting Quizzes</h3>
+    <p>
+       Taking a breather from our core debating events, we also have thrilling quiz-based events 
+       that require fast thinking and a thorough knowledge of every pop culture 
+       reference out there.
+    </p>
+</div>
+</div>
+ <div class="fun-event-card">
+    <div class="what-icon">
+        <img src="events.png">
+    </div>
+
+    <h3>Fun Events</h3>
+    <p>
+       Even if debating is not quite your speed, we have numerous other events that let you try out debating without all its intricacies.
+        With events like Take DeBait and IceBreaker, there is something for everyone.
+    </p>
+</div>
+</section>
+
+<section class="sponsors" id="sponsors">
+    <div class="sponsor-heading">
+    <h2>OUR PREVIOUS SPONSORS</h2>
+     <p>
+           We're proud and thankful to be able to appreciate our generous
+            sponsors who have helped make our events successful, and look forward
+             to more such collaborations in the future.
+
+        </p>
+    </div>
+
+    <div class="sponsor-grid">
+        <img src="sponsor1.png">
+        <img src="sponsor2.png">
+        <img src="sponsor3.png">
+        <img src="sponsor4.png">
+        <img src="sponsor5.png">
+        <img src="sponsor6.png">
+        <img src="sponsor7.png">
+        <img src="sponsor8.png">
+        <img src="sponsor9.png">
+        <img src="sponsor10.png">
+        <img src="sponsor11.png">
+        <img src="sponsor12.png">
+        <img src="sponsor13.png">
+        <img src="sponsor14.png">
+    </div>
+</section>
+<section class="events" id="events">
+    <h2>OUR EVENTS</h2>
+    <p>The Debating Society, NIT Durgapur, hosts an impressive roster of events, including some of the biggest debating events in the eastern circuit,
+         drawing national as well as international participation.</p>
+
+    <div class="event-wrapper">
+        <button class="scroll-btn left" onclick="scrollEvents(-1)">&#10094;</button>
+
+        <div class="event-track" id="eventTrack">
+            <img src="oud.jpg">
+            <img src="apd.png">
+            <img src="incipio.jpg">
+            <img src="Takedebait.jpg">
+            <img src="interface.jpg">
+            <img src="killcode.jpg">
+            <img src="icebreaker.jpg">
+            <img src="rene.jpg">
+            <img src="fictionary.jpg">
+            <img src="kyc.jpg">
+            <img src="janphehchan.jpeg">
+            <img src="killcode (1).jpg">
+            <img src="reverberate (1).jpg">
+             <img src="whatif (1).jpg">
+
+        </div>
+
+        <button class="scroll-btn right" onclick="scrollEvents(1)">&#10095;</button>
+    </div>
+</section>
+
+
+<section class="subscribe">
+    <h2>Get latest updates on <span style="color:#6c63ff">Future Events</span></h2>
+    <div>
+        <input type="email" placeholder="Drop your email id">
+        <button class="btn">Submit</button>
+    </div>
+</section>
+
+<footer>
+    <div>
+        <h3>Contact</h3>
+        <p>Treasurer: +91 9636081068</p>
+        <p>Sponsorship Head: +91 9023054978</p>
+        <p>debatingsociety.nitdgp@gmail.com</p>
+    </div>
+    <div>
+        <h3>Quick Links</h3>
+        <a href="#">Home</a><br><a href="#">Events</a><br><a href="#">About</a>
+    </div>
+</footer>
+<div class="copyright-strip">
+    © The Debating Society, NIT Durgapur
+</div>
+
+
+<script>
+document.querySelectorAll('nav a').forEach(link=>{
+    link.onclick = e=>{
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href'))
+        .scrollIntoView({behavior:'smooth'});
+    }
+});
+function scrollEvents(dir){
+    const track=document.getElementById('eventTrack');
+    track.scrollBy({left: dir*300, behavior:'smooth'});
+}
+
+</script>
+
+</body>
+</html>
+
