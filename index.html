@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DebSoc NIT Durgapur</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -28,13 +31,12 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     overflow:hidden;
 }
 
-/* Background text */
 .hero-bg-text{
     position:absolute;
     top:50%;
     right:6%;
     transform:translateY(-50%);
-    font-size:clamp(140px, 22vw, 240px);  /* 🔥 responsive sizing */
+    font-size:clamp(140px, 22vw, 240px);  
     font-weight:800;
     color:#be5454;
     opacity:0.06;
@@ -45,7 +47,7 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     white-space:nowrap;
 }
 
-/* Heading line */
+
 .hero-line{
     width:120px;
     height:3px;
@@ -58,43 +60,44 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     display:inline-block;
 }
 
-/* background text — between title and underline */
+
 .hero-bg-text{
     position:absolute;
-    top:-40px;                 /* sits above underline */
-    left:50%;
-    transform:translateX(-50%);
-    font-size:clamp(120px, 20vw, 200px);
+    top:-9px;                        
+    left:60%;
+    transform:translateX(-60%);
+    font-size:clamp(99px, 10vw, 110px);
     font-weight:800;
-    letter-spacing:10px;
+    letter-spacing:8px;
     white-space:nowrap;
 
-    color:hotpink;
+    color:red;
 
-    z-index:1;                 /* 🔑 above underline */
+    z-index:1;                          
     pointer-events:none;
     user-select:none;
 }
 
-/* title text */
+/* Main heading */
 .hero-title{
     position:relative;
-    z-index:2;                 /* 🔑 above background text */
+    z-index:2;                         
     font-size:52px;
     font-weight:800;
     white-space:nowrap;
     margin:0;
 }
 
-/* underline */
+
 .hero-underline{
     width:100%;
     height:1.5px;
     background:#000;
     margin-top:8px;
     position:relative;
-    z-index:0;                 /* 🔑 below background text */
+    z-index:0;                          
 }
+
 
 
 
@@ -146,6 +149,42 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     border-radius:8px;font-size:16px;cursor:pointer;
 }
 
+.feature-strip-wrapper{
+    position:relative;
+    margin-top:-60px;  
+    z-index:5;
+}
+
+
+.feature-strip{
+    max-width:900px;
+    margin:0 auto;
+    background:#f8f8fb;
+    border:2px solid #1c1c1c;
+    border-radius:14px;
+    padding:28px 60px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+
+
+.feature-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-size:20px;
+    font-weight:600;
+    color:#1c1c1c;
+}
+
+.feature-item span{
+    font-size:26px;
+}
+
 .section-dark{
     padding:120px 10%;background:#0f0b25;color:#fff;text-align:center;
 }
@@ -178,7 +217,7 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     color:#fff;
 }
 
-/* Fun event centered below */
+
 .fun-event-card{
     margin:80px auto 0;
     width:360px;
@@ -190,7 +229,7 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     color:#fff;
 }
 
-/* icon styling remains same */
+
 .what-icon{
     width:60px;
     height:60px;
@@ -211,18 +250,46 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     filter:invert(1);
 }
 .what-dark{
+    position:relative;
     background:#0f0b25;
     color:#fff;
-    padding:120px 10% 180px;
+    padding:140px 10% 180px;
     text-align:center;
+    overflow:hidden;
+}
+
+
+.what-bg-text{
+    position:absolute;
+    top:33%;                               
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-size:clamp(50px, 8.5vw, 110px);   
+    font-weight:800;
+    letter-spacing:5px;
+    white-space:nowrap;
+
+    color:rgba(255,255,255,0.12);
+
+    z-index:0;
+    pointer-events:none;
+    user-select:none;
+}
+
+
+
+
+
+.what-dark h2,
+.what-dark p{
     position:relative;
-    z-index:1;
+    z-index:2;
 }
 
 .what-purple{
     background:#6c63ff;
     padding:120px 10% 80px;
-    margin-top:-120px; /* THIS creates overlap */
+    margin-top:-120px; 
     position:relative;
     z-index:2;
     border-radius:40px 40px 0 0;
@@ -261,12 +328,12 @@ nav a{text-decoration:none;color:#111;font-weight:600;}
     padding:0;
     background:transparent;
     box-shadow:none;
-    filter:none;          /* REMOVE grayscale */
-    opacity:1;            /* FULL visibility */
+    filter:none;          
+    opacity:1;            
     transition:0.3s ease;
 }
 
-/* keep the clumsy randomness */
+
 .sponsor-grid img:nth-child(3n){width:200px;}
 .sponsor-grid img:nth-child(4n){width:140px;}
 .sponsor-grid img:nth-child(5n){width:220px;}
@@ -332,6 +399,35 @@ footer{
 }
 footer h3{margin-bottom:10px;}
 footer p,a{color:#ddd;text-decoration:none;font-size:14px;}
+.footer-left h3{
+    margin-bottom:15px;
+}
+
+.social-icons{
+    display:flex;
+    gap:18px;
+}
+
+.social-icons a{
+    width:42px;
+    height:42px;
+    border:1.5px solid rgba(255,255,255,0.6);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+    font-size:18px;
+    transition:0.3s ease;
+}
+
+.social-icons a:hover{
+    background:#fff;
+    color:#6c63ff;
+    transform:translateY(-3px);
+}
+
 .copyright-strip{
     background:#0f0b25;
     color:#bbb;
@@ -363,7 +459,7 @@ footer p,a{color:#ddd;text-decoration:none;font-size:14px;}
     <div class="hero-container">
 
         <div class="hero-logo">
-            <img src="logo.png" alt="DebSoc Logo">
+            <img src="image/logo.png" alt="DebSoc Logo">
         </div>
 
         <div class="hero-spacer"></div>
@@ -371,11 +467,14 @@ footer p,a{color:#ddd;text-decoration:none;font-size:14px;}
         <div class="hero-content">
            <div class="hero-title-wrapper">
 
+    
+
     <h1 class="hero-title">
         THE <span>DEBATING</span> SOCIETY
     </h1>
 
     <div class="hero-underline"></div>
+
 </div>
 
             <h2>NIT DURGAPUR</h2>
@@ -388,9 +487,28 @@ footer p,a{color:#ddd;text-decoration:none;font-size:14px;}
 
     </div>
 </section>
+<div class="feature-strip-wrapper">
+    <div class="feature-strip">
+        <div class="feature-item">
+            <span>✨</span>
+            <p>Design</p>
+        </div>
+
+        <div class="feature-item">
+            <span>🏆</span>
+            <p>Debate</p>
+        </div>
+
+        <div class="feature-item">
+            <span>🎉</span>
+            <p>Organise</p>
+        </div>
+    </div>
+</div>
 
 
 <section class="what-dark">
+    <div class="what-bg-text">WHAT WE DO</div>
     <h2>WHAT WE DO</h2>
     <p>The Debating Society, NIT Durgapur, hosts some of the biggest debating events
 in the eastern circuit. Over the years, we have built a platform for talented and inquisitive
@@ -403,7 +521,7 @@ in the eastern circuit. Over the years, we have built a platform for talented an
     <div class="what-cards-row">
     <div class="what-card">
     <div class="what-icon">
-        <img src="debate.png">
+        <img src="image/debate.png">
     </div>
 
     <h3>National Debates</h3>
@@ -415,7 +533,7 @@ in the eastern circuit. Over the years, we have built a platform for talented an
 </div>
  <div class="what-card">
     <div class="what-icon">
-        <img src="workshop.png">
+        <img src="image/workshop.png">
     </div>
 
     <h3>Speaking Workshops</h3>
@@ -427,7 +545,7 @@ in the eastern circuit. Over the years, we have built a platform for talented an
 </div>
  <div class="what-card">
     <div class="what-icon">
-        <img src="quiz.png">
+        <img src="image/quiz.png">
     </div>
 
     <h3>Exciting Quizzes</h3>
@@ -440,7 +558,7 @@ in the eastern circuit. Over the years, we have built a platform for talented an
 </div>
  <div class="fun-event-card">
     <div class="what-icon">
-        <img src="events.png">
+        <img src="image/events.png">
     </div>
 
     <h3>Fun Events</h3>
@@ -463,20 +581,20 @@ in the eastern circuit. Over the years, we have built a platform for talented an
     </div>
 
     <div class="sponsor-grid">
-        <img src="sponsor1.png">
-        <img src="sponsor2.png">
-        <img src="sponsor3.png">
-        <img src="sponsor4.png">
-        <img src="sponsor5.png">
-        <img src="sponsor6.png">
-        <img src="sponsor7.png">
-        <img src="sponsor8.png">
-        <img src="sponsor9.png">
-        <img src="sponsor10.png">
-        <img src="sponsor11.png">
-        <img src="sponsor12.png">
-        <img src="sponsor13.png">
-        <img src="sponsor14.png">
+        <img src="image/sponsor1.png">
+        <img src="image/sponsor2.png">
+        <img src="image/sponsor3.png">
+        <img src="image/sponsor4.png">
+        <img src="image/sponsor5.png">
+        <img src="image/sponsor6.png">
+        <img src="image/sponsor7.png">
+        <img src="image/TimeCoding.png">
+        <img src="image/sponsor9.png">
+        <img src="image/sponsor10.png">
+        <img src="image/sponsor11.png">
+        <img src="image/sponsor12.png">
+        <img src="image/sponsor13.png">
+        <img src="image/sponsor14.png">
     </div>
 </section>
 <section class="events" id="events">
@@ -488,20 +606,20 @@ in the eastern circuit. Over the years, we have built a platform for talented an
         <button class="scroll-btn left" onclick="scrollEvents(-1)">&#10094;</button>
 
         <div class="event-track" id="eventTrack">
-            <img src="oud.jpg">
-            <img src="apd.png">
-            <img src="incipio.jpg">
-            <img src="Takedebait.jpg">
-            <img src="interface.jpg">
-            <img src="killcode.jpg">
-            <img src="icebreaker.jpg">
-            <img src="rene.jpg">
-            <img src="fictionary.jpg">
-            <img src="kyc.jpg">
-            <img src="janphehchan.jpeg">
-            <img src="killcode (1).jpg">
-            <img src="reverberate (1).jpg">
-             <img src="whatif (1).jpg">
+            <img src="image/oud.jpg">
+            <img src="image/apd.png">
+            <img src="image/incipio.jpg">
+            <img src="image/Takedebait.jpg">
+            <img src="image/interface.jpg">
+            <img src="image/killcode.jpg">
+            <img src="image/icebreaker.jpg">
+            <img src="image/rene.jpg">
+            <img src="image/fictionary.jpg">
+            <img src="image/kyc.jpg">
+            <img src="image/janphehchan.jpeg">
+            <img src="image/killcode (1).jpg">
+            <img src="image/reverberate (1).jpg">
+             <img src="image/whatif (1).jpg">
 
         </div>
 
@@ -519,6 +637,23 @@ in the eastern circuit. Over the years, we have built a platform for talented an
 </section>
 
 <footer>
+    <div class="footer-left">
+        <h3>Find us here</h3>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/debsoc_nitdgp/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/debsoc.nitdgp/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/company/debating-society-nit-durgapur/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
     <div>
         <h3>Contact</h3>
         <p>Treasurer: +91 9636081068</p>
@@ -552,4 +687,3 @@ function scrollEvents(dir){
 
 </body>
 </html>
-
