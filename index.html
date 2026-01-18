@@ -436,7 +436,14 @@ footer p,a{color:#ddd;text-decoration:none;font-size:14px;}
     font-size:13px;
     letter-spacing:0.5px;
 }
-
+@media(max-width:768px){
+    nav ul{display:none;}
+    .hero-container{flex-direction:column;text-align:center;}
+    .hero-spacer{display:none;}
+    .hero-logo img{width:180px;margin-bottom:20px;}
+    .hero-content h1{font-size:36px;}
+    .feature-strip{flex-direction:column;gap:20px;}
+}
 </style>
 </head>
 
@@ -687,3 +694,4 @@ function scrollEvents(dir){
 
 </body>
 </html>
+
